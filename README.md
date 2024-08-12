@@ -64,3 +64,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+// 1. php artisan make:migration create_proyectos_table --create=proyectos
+// 2. Editar archivo de migracion que se genera en database/migrations para definir los campos de la tabla.
+// 3. Ejecutar migracion php artisan migrate
+//4. crear modelo php artisan make:model Proyecto
+//5. Modificar archivo de modelo
+//6. Crear el controlador AccionController php artisan make:controller ProyectoController
+//7. Crear acceso desde backoffice
+//8. Crear Vista php artisan:view backoffice.mantenedor.proyecto

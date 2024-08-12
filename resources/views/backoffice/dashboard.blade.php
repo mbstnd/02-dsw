@@ -10,6 +10,25 @@
     <h1>Dashboard</h1>
     <hr>
     <h2>Datos del Usuario</h2>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <td>{{ $user->name }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ $user->email }}</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Mantenedores</h2>
+    <div>
+        <ul>
+            <li>
+                <a href="{{ Route('proyectos.index') }}">Proyecto</a>
+            </li>
+        </ul>
+    </div>
 
 </body>
 </html>
