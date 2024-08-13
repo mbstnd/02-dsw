@@ -33,10 +33,6 @@
                 <label for="monto">Monto:</label>
                 <input type="number" id="monto" name="monto" placeholder="Monto del proyecto">
             </div>
-            <div>
-                <label for="created_by">Creado por (ID del usuario):</label>
-                <input type="number" id="created_by" name="created_by" placeholder="ID del usuario" required>
-            </div>
             <button type="submit">Agregar</button>
         </form>
     </div>
@@ -48,11 +44,10 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Fecha de Inicio</th>
-                    <th>Estado</th>
                     <th>Responsable</th>
                     <th>Monto</th>
+                    <th>Estado</th>
                     <th>Creado por</th>
-                    <th>Activo</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,11 +56,10 @@
                     <td>{{ $registro->id }}</td>
                     <td>{{ $registro->name }}</td>
                     <td>{{ $registro->fecha_inicio }}</td>
-                    <td>{{ $registro->estado }}</td>
                     <td>{{ $registro->responsable }}</td>
                     <td>{{ $registro->monto }}</td>
-                    <td>{{ $registro->created_by }}</td>
-                    <td>{{ $registro->activo ? 'Activo' : 'Inactivo' }}</td>
+                    <td>{{ $registro->estado }}</td>
+                    <td>{{ $registro->user->name }}</td>
                 </tr>
                 @endforeach
             </tbody>

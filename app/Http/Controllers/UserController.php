@@ -13,7 +13,7 @@ class UserController extends Controller
     public function formularioLogin()
     {
         if (Auth::check()){
-            return redirect()->route('backoffice,dashboard');
+            return redirect()->route('backoffice.dashboard');
         }
         return view('usuario.login');
     }
@@ -21,7 +21,7 @@ class UserController extends Controller
     public function formularioNuevo()
     {
         if (Auth::check()){
-            return redirect()->route('backoffice,dashboard');
+            return redirect()->route('backoffice.dashboard');
         }
         return view('usuario.create');
     }

@@ -66,7 +66,7 @@ class ProyectoController extends Controller
                 'estado' => $_request->estado,
                 'responsable' => $_request->responsable,
                 'monto' => $_request->monto,
-                'created_by' => $_request->created_by,
+                'created_by' => $user->id,
                 'activo' => false,
 
             ]);
