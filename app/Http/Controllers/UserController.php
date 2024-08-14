@@ -81,6 +81,9 @@ class UserController extends Controller
 
         $data = $_request->only('name', 'email', 'password', 'rePassword', 'dayCode');
 
+        echo "Valor de dayCode: " . $data['dayCode'];
+        var_dump($data['dayCode']);
+
         if ($data['password'] != $data['rePassword']){
             return back()->withErrors(['message' => 'Las contraseñas no coinciden ']);
         }
@@ -102,5 +105,12 @@ class UserController extends Controller
             }
             return back()->withErrors(['message' => 'Error desconocido:', $e->getMessage()]);
         }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

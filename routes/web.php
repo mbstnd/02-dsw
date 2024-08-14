@@ -28,3 +28,5 @@ Route::get('/backoffice', function(){
 
 Route::get('/backoffice/proyectos', [ProyectoController::class, 'index'])->name('proyectos.index');
 Route::post('/backoffice/proyectos/new', [ProyectoController::class, 'create'])->name('proyectos.create');
+
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
