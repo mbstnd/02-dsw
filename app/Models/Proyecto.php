@@ -26,7 +26,7 @@ class Proyecto extends Model
         'update_at',
     ];
 
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class, 'created_by');
     }

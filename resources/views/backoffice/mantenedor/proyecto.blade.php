@@ -23,7 +23,7 @@
             </div>
             <div>
                 <label for="estado">Estado:</label>
-                <input type="text" id="estado" name="estado" placeholder="Estado del proyecto" required>
+                <input type="text" id="estado" name="estado" placeholder="Estado del proyecto">
             </div>
             <div>
                 <label for="responsable">Responsable:</label>

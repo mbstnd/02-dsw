@@ -31,7 +31,7 @@
             <input type="password" name="rePassword" value="pass">
         </label>
         <label>Contrasena:
-            <input type="password" name="dayCode" value="12">
+            <input type="password" name="dayCode" value="13">
         </label>
         <button>Crear Usuario</button>
 

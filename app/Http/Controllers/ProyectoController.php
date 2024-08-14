@@ -28,54 +28,50 @@ class ProyectoController extends Controller
 
     public function create(Request $_request)
     {
-        $user = Auth::user();
-        if ($user == null) {
-            return redirect()->route('usuario.login')->withErrors(['message' => 'No Existe una sesion activa']);
-        }
-
-        // Validar Solicitud
-        $validationMessages = [
-            'name.required' => 'El nombre del proyecto es obligatorio.',
-            'fecha_inicio.required' => 'La fecha de inicio es obligatoria.',
-            'fecha_inicio.date' => 'Introduce una fecha de inicio válida.',
-            'estado.required' => 'El estado del proyecto es obligatorio.',
-            'responsable.required' => 'El responsable del proyecto es obligatorio.',
-            'monto.required' => 'El monto del proyecto es obligatorio.',
-            'monto.numeric' => 'El monto debe ser un valor numérico.',
-            'created_by.required' => 'El campo creado por es obligatorio.',
-            'created_by.exists' => 'El ID del usuario que creó el proyecto debe existir en la base de datos.',
-        ];
-
-        $_request->validate([
-            'name' => 'required|string|max:50',
-            'fecha_inicio' => 'required|date',
-            'estado' => 'required|string|max:255',
-            'responsable' => 'required|string|max:255',
-            'monto' => 'required|numeric',
-            'created_by' => 'required|exists:users,id',
-
-        ], $validationMessages);
-
         try {
+            $user = Auth::user();
+            if ($user == null) {
+                return redirect()->route('usuario.login')->withErrors(['message' => 'No Existe una sesión activa']);
+            }
 
-            //Insertar registro en la BD
+            // Validar Solicitud
+            $validationMessages = [
+                'name.required' => 'El nombre del proyecto es obligatorio.',
+                'name.unique' => 'Ya existe un proyecto con este nombre.',
+                'fecha_inicio.required' => 'La fecha de inicio es obligatoria.',
+                'fecha_inicio.date' => 'Introduce una fecha de inicio válida.',
+                'estado.required' => 'El estado del proyecto es obligatorio.',
+                'responsable.required' => 'El responsable del proyecto es obligatorio.',
+                'monto.required' => 'El monto del proyecto es obligatorio.',
+                'monto.numeric' => 'El monto debe ser un valor numérico.',
+            ];
 
-            Proyecto::create([
-                'name' => $_request->name,
-                'fecha_inicio' => $_request->fecha_inicio,
-                'estado' => $_request->estado,
-                'responsable' => $_request->responsable,
-                'monto' => $_request->monto,
-                'created_by' => $user->id,
-                'activo' => false,
+            $_request->validate([
+                'name' => 'required|string|max:50|unique:proyectos,name',
+                'fecha_inicio' => 'required|date',
+                'estado' => 'required|string|max:255',
+                'responsable' => 'required|string|max:255',
+                'monto' => 'required|numeric',
+            ], $validationMessages);
 
-            ]);
+            // Crear nuevo proyecto
+            $proyecto = new Proyecto();
+            $proyecto->name = $_request->input('name');
+            $proyecto->fecha_inicio = $_request->input('fecha_inicio');
+            $proyecto->estado = $_request->input('estado');
+            $proyecto->responsable = $_request->input('responsable');
+            $proyecto->monto = $_request->input('monto');
+            $proyecto->created_by = $user->id;
+
+            // Guardar proyecto en la base de datos
+            $proyecto->save();
 
 
-            return redirect()->back()->with('success', 'Proyecto creado con exito');
+            return redirect()->route('proyectos.index')
+                ->with('success', 'Proyecto creado con éxito');
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Error al crear el proyecto' . $e->getMessage());
-
+            // Manejar el error y redirigir con mensaje de error
+            return redirect()->back()->with('error', 'Error al crear el proyecto: ' . $e->getMessage());
         }
     }
     public function enable() {}
