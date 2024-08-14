@@ -66,11 +66,52 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-// 1. php artisan make:migration create_proyectos_table --create=proyectos
-// 2. Editar archivo de migracion que se genera en database/migrations para definir los campos de la tabla.
-// 3. Ejecutar migracion php artisan migrate
-//4. crear modelo php artisan make:model Proyecto
-//5. Modificar archivo de modelo
-//6. Crear el controlador AccionController php artisan make:controller ProyectoController
-//7. Crear acceso desde backoffice
-//8. Crear Vista php artisan:view backoffice.mantenedor.proyecto
+# Modernización del Sistema de Gestión de Proyectos para Tech Solutions
+
+Tech Solutions ha decidido modernizar su sistema de gestión de proyectos. A continuación se describen los requerimientos y tareas para esta modernización:
+
+## Requerimientos
+
+### Rutas API
+
+1. **Registro de Usuario**
+2. **Inicio de Sesión de Usuario**
+
+### Controladores
+
+Generar los siguientes controladores para conectar las rutas con los modelos:
+
+1. **Controlador de Autenticación**
+   - **Función de Registro de Usuario:** Implementar cifrado de la clave.
+   - **Función de Inicio de Sesión:** Devolver un JWT si las credenciales son correctas.
+
+### Modelos
+
+Generar los siguientes modelos con datos estáticos:
+
+1. **Usuario**
+   - `Id`
+   - `Nombre`
+   - `Correo` (Identificador Único)
+   - `Clave`
+
+2. **Proyecto (Actualizar)**
+   - `Id`
+   - `Nombre`
+   - `Fecha de Inicio`
+   - `Estado`
+   - `Responsable`
+   - `Monto`
+   - `created_by` (Debería ser el Id del usuario)
+
+### Vistas
+
+Construir las siguientes vistas con estilos básicos para mostrar la información retornada por el controlador:
+
+1. **Inicio de Sesión**
+2. **Registro**
+
+### Middleware
+
+Generar un middleware que valide si el usuario está autenticado o no mediante un JWT.
+
