@@ -6,12 +6,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-
-# Situación: Desarrollo Software de Gestión de Proyectos 
+<hr>
 
 # Modernización del Sistema de Gestión de Proyectos para Tech Solutions
 
-Tech Solutions ha decidido modernizar su sistema de gestión de proyectos. A continuación se describen los requerimientos y tareas para esta modernización:
+Tech Solutions ha decidido modernizar su sistema de gestión de proyectos. A continuación se detallan los requerimientos y tareas para esta modernización:
 
 ## Requerimientos
 
@@ -25,7 +24,7 @@ Tech Solutions ha decidido modernizar su sistema de gestión de proyectos. A con
 Generar los siguientes controladores para conectar las rutas con los modelos:
 
 1. **Controlador de Autenticación**
-   - **Función de Registro de Usuario:** Implementar cifrado de la clave.
+   - **Función de Registro de Usuario:** Implementar cifrado de la contraseña.
    - **Función de Inicio de Sesión:** Devolver un JWT si las credenciales son correctas.
 
 ### Modelos
@@ -36,7 +35,7 @@ Generar los siguientes modelos con datos estáticos:
    - `Id`
    - `Nombre`
    - `Correo` (Identificador Único)
-   - `Clave`
+   - `Contraseña`
 
 2. **Proyecto (Actualizar)**
    - `Id`
@@ -53,8 +52,3 @@ Construir las siguientes vistas con estilos básicos para mostrar la informació
 
 1. **Inicio de Sesión**
 2. **Registro**
-
-### Middleware
-
-Generar un middleware que valide si el usuario está autenticado o no mediante un JWT.
-
