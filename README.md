@@ -6,71 +6,49 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+<hr>
 
-## About Laravel
+# Modernización del Sistema de Gestión de Proyectos para Tech Solutions
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Tech Solutions ha decidido modernizar su sistema de gestión de proyectos. A continuación se detallan los requerimientos y tareas para esta modernización:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requerimientos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Rutas API
 
-## Learning Laravel
+1. **Registro de Usuario**
+2. **Inicio de Sesión de Usuario**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Controladores
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Generar los siguientes controladores para conectar las rutas con los modelos:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Controlador de Autenticación**
+   - **Función de Registro de Usuario:** Implementar cifrado de la contraseña.
+   - **Función de Inicio de Sesión:** Devolver un JWT si las credenciales son correctas.
 
-## Laravel Sponsors
+### Modelos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Generar los siguientes modelos con datos estáticos:
 
-### Premium Partners
+1. **Usuario**
+   - `Id`
+   - `Nombre`
+   - `Correo` (Identificador Único)
+   - `Contraseña`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+2. **Proyecto (Actualizar)**
+   - `Id`
+   - `Nombre`
+   - `Fecha de Inicio`
+   - `Estado`
+   - `Responsable`
+   - `Monto`
+   - `created_by` (Debería ser el Id del usuario)
 
-## Contributing
+### Vistas
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Construir las siguientes vistas con estilos básicos para mostrar la información retornada por el controlador:
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-
-// 1. php artisan make:migration create_proyectos_table --create=proyectos
-// 2. Editar archivo de migracion que se genera en database/migrations para definir los campos de la tabla.
-// 3. Ejecutar migracion php artisan migrate
-//4. crear modelo php artisan make:model Proyecto
-//5. Modificar archivo de modelo
-//6. Crear el controlador AccionController php artisan make:controller ProyectoController
-//7. Crear acceso desde backoffice
-//8. Crear Vista php artisan:view backoffice.mantenedor.proyecto
+1. **Inicio de Sesión**
+2. **Registro**
