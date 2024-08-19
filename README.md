@@ -10,45 +10,30 @@
 
 # Modernización del Sistema de Gestión de Proyectos para Tech Solutions
 
-Tech Solutions ha decidido modernizar su sistema de gestión de proyectos. A continuación se detallan los requerimientos y tareas para esta modernización:
+# **Desarrollo Software Web - Unidad 2**
 
-## Requerimientos
+## Grupo Kimera - Integrantes:
 
-### Rutas API
+- Patricio Ibargaray Alarcón (71)
+- Mario Quevedo Astudillo (71)
+- Javier Reumay Ancalaf (71)
+- Franco Vásquez Fuentes (70)
 
-1. **Registro de Usuario**
-2. **Inicio de Sesión de Usuario**
+## Requisitos:
 
-### Controladores
+- NodeJS
+- PHP
+- Composer
 
-Generar los siguientes controladores para conectar las rutas con los modelos:
+## Instrucciones:
 
-1. **Controlador de Autenticación**
-   - **Función de Registro de Usuario:** Implementar cifrado de la contraseña.
-   - **Función de Inicio de Sesión:** Devolver un JWT si las credenciales son correctas.
+1. Instalar paquetes con `composer install` y `npm install`.
+2. Compilar recursos dev con `npm run dev`.
+3. Iniciar servidor dev con `php artisan serve`.
+4. Abrir en el navegador `http://localhost:8000/`.
 
-### Modelos
+## Repositorio:
 
-Generar los siguientes modelos con datos estáticos:
+[Github](https://github.com/mbstnd/02-dsw)
 
-1. **Usuario**
-   - `Id`
-   - `Nombre`
-   - `Correo` (Identificador Único)
-   - `Contraseña`
 
-2. **Proyecto (Actualizar)**
-   - `Id`
-   - `Nombre`
-   - `Fecha de Inicio`
-   - `Estado`
-   - `Responsable`
-   - `Monto`
-   - `created_by` (Debería ser el Id del usuario)
-
-### Vistas
-
-Construir las siguientes vistas con estilos básicos para mostrar la información retornada por el controlador:
-
-1. **Inicio de Sesión**
-2. **Registro**
