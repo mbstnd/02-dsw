@@ -8,32 +8,76 @@
 </p>
 <hr>
 
-# Modernización del Sistema de Gestión de Proyectos para Tech Solutions
 
-# **Desarrollo Software Web - Unidad 2**
+# Desarrollo Software Web - Unidad II
 
-## Grupo Kimera - Integrantes:
+## Grupo Kimera
 
-- Patricio Ibargaray Alarcón (71)
-- Mario Quevedo Astudillo (71)
-- Javier Reumay Ancalaf (71)
-- Franco Vásquez Fuentes (70)
+- **Patricio Ibargaray Alarcón** (71)
+- **Mario Quevedo Astudillo** (71)
+- **Javier Reumay Ancalaf** (71)
+- **Franco Vásquez Fuentes** (70)
 
-## Requisitos:
+## Instrucciones de Instalación y Configuración
 
-- NodeJS
-- PHP
-- Composer
+### 1. Instalar PHP, Composer, y Node.js
 
-## Instrucciones:
+Ejecuta el siguiente comando para instalar PHP, Composer y Node.js:
 
-1. Instalar paquetes con `composer install` y `npm install`.
-2. Compilar recursos dev con `npm run dev`.
-3. Iniciar servidor dev con `php artisan serve`.
-4. Abrir en el navegador `http://localhost:8000/`.
+~~~
+choco install php composer nodejs
+~~~
+### 2. Clonar el Repositorio:
+Clona el repositorio con Git y navega al directorio del proyecto:
 
-## Repositorio:
+~~~
+git clone https://github.com/mbstnd/02-dsw
+cd 02-dsw
+~~~
 
-[Github](https://github.com/mbstnd/02-dsw)
+### 3. Instalar dependencias de Composer:
+~~~
+composer install
+~~~
 
+### 4. Instalar dependencias de NodeJS:
+~~~
+npm install
+~~~
 
+### 5. Configurar el entorno:
+~~~
+copy .env.example .env
+php artisan key:generate
+~~~
+
+### 6. Configurar SQLITE:
+Asegúrate de que la variable `DB_CONNECTION` esté configurada para usar SQLite en el archivo `.env`.
+
+~~~
+   DB_CONNECTION=sqlite
+   DB_DATABASE=database/database.sqlite
+~~~
+
+### 7. Migrar Base de Datos:
+~~~
+php artisan migrate
+~~~
+
+### 8. Compilar los Recursos del Frontend:
+~~~
+npm run dev
+~~~
+
+### 9. Levantar servidor de desarrollo:
+~~~
+php artisan serve
+~~~
+
+### 10. Abrir el proyecto en el navegador:
+
+- Vista : `http://localhost:8000`
+
+### Notas Adicionales:
+- Asegúrate de que el archivo `.env` contenga la configuración correcta para `DB_CONNECTION=sqlite`.
+- Si encuentras problemas de permisos, ajusta los permisos del archivo database.sqlite según sea necesario.
