@@ -40,13 +40,7 @@ composer install
 npm install
 ~~~
 
-### 5. Configurar el entorno:
-~~~
-copy .env.example .env
-php artisan key:generate
-~~~
-
-### 6. Configurar SQLITE:
+### 5. Configurar SQLITE:
 Asegúrate de que la variable `DB_CONNECTION` esté configurada para usar SQLite en el archivo `.env`.
 
 ~~~
@@ -54,22 +48,22 @@ Asegúrate de que la variable `DB_CONNECTION` esté configurada para usar SQLite
    DB_DATABASE=database/database.sqlite
 ~~~
 
-### 7. Migrar Base de Datos:
+### 6. Migrar Base de Datos:
 ~~~
 php artisan migrate
 ~~~
 
-### 8. Compilar los Recursos del Frontend:
+### 7. Compilar los Recursos del Frontend:
 ~~~
 npm run dev
 ~~~
 
-### 9. Levantar servidor de desarrollo:
+### 8. Levantar servidor de desarrollo:
 ~~~
 php artisan serve
 ~~~
 
-### 10. Abrir el proyecto en el navegador:
+### 9. Abrir el proyecto en el navegador:
 
 - Vista : `http://localhost:8000`
 
