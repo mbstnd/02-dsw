@@ -63,9 +63,8 @@ npm run dev
 php artisan serve
 ~~~
 
-### 9. Abrir el proyecto en el navegador:
+### 9. Abrir el proyecto en el navegador
 
-- Vista : `http://localhost:8000`
 
 ### Notas Adicionales:
 - Asegúrate de que el archivo `.env` contenga la configuración correcta para `DB_CONNECTION=sqlite`.
