@@ -80,4 +80,4 @@ php artisan serve
 
 ### Notas Adicionales:
 - Asegúrate de que el archivo `.env` contenga la configuración correcta para `DB_CONNECTION=sqlite`.
-- Si encuentras problemas de permisos, ajusta los permisos del archivo database.sqlite según sea necesario.
+- Si encuentras problemas de permisos, ajusta los permisos del archivo `database.sqlite` según sea necesario.
