@@ -20,13 +20,8 @@
 
 ## Instrucciones de Instalación y Configuración
 
-### 1. Instalar PHP, Composer, y Node.js
+### 1. Instalar PHP, Composer y Node.js
 
-Ejecuta el siguiente comando para instalar PHP, Composer y Node.js:
-
-~~~
-choco install php composer nodejs
-~~~
 ### 2. Clonar el Repositorio:
 Clona el repositorio con Git y navega al directorio del proyecto:
 
